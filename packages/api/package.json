@@ -1,0 +1,24 @@
+{
+  "name": "@agent/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent 平台多端共享 API 客户端（REST + SSE 事件语义 + 上传进度）",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@agent/types": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

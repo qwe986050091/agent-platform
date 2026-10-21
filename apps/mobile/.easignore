@@ -1,0 +1,61 @@
+# EAS Build 归档排除规则。
+#
+# 重要：存在 .easignore 时，EAS 会用它「取代」.gitignore（不是叠加），
+# 因此下面必须完整保留 .gitignore 的全部规则，只在末尾追加额外排除项。
+# 参考：https://expo.fyi/eas-build-archive
+
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# generated native folders
+/ios
+/android
+
+# OTA 发布中间产物
+.ota-export/
+.ota-release/
+.ota-release.tar.gz
+update-dist/
+
+# ===== 以下为 .easignore 额外排除 =====
+# 本机 pnpm store（由 .npmrc / pnpm-workspace.yaml 的 store-dir 指到项目内，约 500MB，
+# EAS 上会自行安装依赖，不需要上传这份缓存。曾导致上传包从 ~25MB 涨到 225MB）
+.pnpm-store/
+# 机器专属的包管理器配置（store 绝对路径指向本机 D 盘），EAS 不需要
+.npmrc
+pnpm-workspace.yaml

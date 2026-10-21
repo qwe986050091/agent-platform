@@ -1,0 +1,49 @@
+{
+  "name": "@agent/desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent AI 桌面端：Electron 壳 + 本地 MCP Server 进程管理",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "pnpm build && electron .",
+    "dev": "pnpm build && electron .",
+    "package": "pnpm build && electron-builder --dir",
+    "package:win": "pnpm build && electron-builder --win nsis"
+  },
+  "dependencies": {
+    "@agent/types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.15.3",
+    "typescript": "^5.5.4"
+  },
+  "build": {
+    "appId": "com.zlf.agent.desktop",
+    "productName": "Agent AI Desktop",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../web/dist",
+        "to": "web"
+      },
+      {
+        "from": "../../../mcp-server-go/bin",
+        "to": "mcp-server",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

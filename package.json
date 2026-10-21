@@ -1,0 +1,24 @@
+{
+  "name": "agent-platform",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Agent 平台多端 monorepo：Web / 移动端 / Electron 桌面端共享 API 客户端与类型",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @agent/web dev",
+    "dev:web": "pnpm --filter @agent/web dev",
+    "dev:mobile": "pnpm --filter @agent/mobile start",
+    "dev:desktop": "pnpm --filter @agent/desktop dev",
+    "build": "pnpm --filter @agent/web build && pnpm --filter @agent/desktop build",
+    "build:web": "pnpm --filter @agent/web build",
+    "build:desktop": "pnpm --filter @agent/desktop build",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "verify": "pnpm typecheck && pnpm build"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

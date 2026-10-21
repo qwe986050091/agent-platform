@@ -1,0 +1,56 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# generated native folders
+/ios
+/android
+
+# OTA 发布中间产物
+.ota-export/
+.ota-release/
+.ota-release.tar.gz
+update-dist/
+
+# 本机 pnpm store（.npmrc 的 store-dir 指到项目内，约 500MB，不该进仓库）
+.pnpm-store/
+
+# 机器专属的包管理器配置：store 绝对路径指向本机 D 盘，只对本机有意义。
+# 入库会让 CI 的 pnpm 去解析一个没有 packages 字段的 workspace 文件而报错，
+# 也会让 EAS 上传包平白胀大。保留在本地即可（本地行为不变）。
+.npmrc
+pnpm-workspace.yaml
