@@ -6,7 +6,7 @@
  * expo-runtime-version / expo-channel-name 请求头），服务端返回 manifest JSON 或 204。
  * 本脚本负责「导出 JS bundle → 生成 manifest → 上传产物 → 原子切换 current 指针」。
  *
- * 用法（在 d:\code\agent_mobile 目录下执行）：
+ * 用法（在 d:\code\agent-platform\apps\mobile 目录下执行）：
  *   node scripts/ota.mjs publish  [channel]              # 发布（默认 preview）
  *   node scripts/ota.mjs list     [channel]              # 列出服务端已发布的 runtimeVersion / release
  *   node scripts/ota.mjs rollback [channel] [releaseId]  # 切回指定 release（不传则只列出）

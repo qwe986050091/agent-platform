@@ -53,9 +53,7 @@ yarn-error.*
 update-dist/
 
 # ===== 以下为 .easignore 额外排除 =====
-# 本机 pnpm store（由 .npmrc / pnpm-workspace.yaml 的 store-dir 指到项目内，约 500MB，
-# EAS 上会自行安装依赖，不需要上传这份缓存。曾导致上传包从 ~25MB 涨到 225MB）
+# 本机 pnpm store（约 500MB，EAS 上会自行安装依赖，不需要上传这份缓存）
 .pnpm-store/
-# 机器专属的包管理器配置（store 绝对路径指向本机 D 盘），EAS 不需要
-.npmrc
-pnpm-workspace.yaml
+# 注意：monorepo 下不能排除仓库根的 pnpm-workspace.yaml / .npmrc，
+# 否则 EAS 无法识别工作区、@agent/api 与 @agent/types 解析会失败。
