@@ -13,11 +13,10 @@ importers:
         version: 5.9.3
 
   apps/desktop:
-    dependencies:
+    devDependencies:
       '@agent/types':
         specifier: workspace:*
         version: link:../../packages/types
-    devDependencies:
       '@types/node':
         specifier: ^22.10.0
         version: 22.20.5

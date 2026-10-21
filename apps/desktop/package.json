@@ -12,10 +12,8 @@
     "package": "pnpm build && electron-builder --dir",
     "package:win": "pnpm build && electron-builder --win nsis"
   },
-  "dependencies": {
-    "@agent/types": "workspace:*"
-  },
   "devDependencies": {
+    "@agent/types": "workspace:*",
     "@types/node": "^22.10.0",
     "electron": "^45.0.0",
     "electron-builder": "^26.15.3",
